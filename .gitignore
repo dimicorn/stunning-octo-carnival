@@ -1,2 +1,4 @@
+*.yaml
 points.json
-*.txt
+requirements2.txt
+venv/
