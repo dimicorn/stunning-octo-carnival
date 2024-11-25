@@ -1,3 +1,6 @@
+import sys
+import json
+
 class Point:
 	def __init__(self, x, y):
 		self.x = x
@@ -50,9 +53,16 @@ def JarvisWrap(points: list[Point], n: int) -> list:
 
 		if p == l:
 			return hull
-
+'''
+int main(int argc, char** argv) {
+    return 0;
+}
+'''
 def main():
-	points = [Point(0, 3), Point(2, 2), Point(1, 1), Point(2, 1), Point(3, 0), Point(0, 0), Point(3, 3)]
+	input_file = sys.argv[1]
+	with open(input_file) as f:
+		input = json.load(f)
+	points = [Point(*point) for point in input['test_points']]
 	idx = JarvisWrap(points, len(points))
 	for each in idx:
 		print(points[each].x, points[each].y)
